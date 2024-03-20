@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>test</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://helios.utcluj.ro/cosmin/WEB/CSS/style.css">
+
+    <script>
+        function f1() {
+            elem1 = document.getElementById("latime");
+            elem2 = document.getElementById("inaltime");
+            forma = document.getElementById("forma");
+
+            forma.style.width = elem1.value + "px";
+            forma.style.height = elem2.value + "px";
+
+            red = document.getElementById("red").value;
+            green = document.getElementById("green").value;
+            blue = document.getElementById("blue").value;
+            forma.style.backgroundColor = "rgb("+red+","+green+","+blue+")";
+        }
+    </script>
+</head>
+<body>
+    <div id="forma" style="width: 10px; height: 10px; background-color: red;"></div>
+
+    <form oninput="f1()">
+        <p>Width:</p>
+        <input type="range" name="range1" id="latime" min="10" max="100">
+        <p>Height:</p>
+        <input type="range" name="range1" id="inaltime" min="10" max="100">
+        <p>R</p>
+        <input type="range" name="range1" id="red" min="0" max="255">
+        <p>G</p>
+        <input type="range" name="range1" id="green" min="0" max="255">
+        <p>B</p>
+        <input type="range" name="range1" id="blue" min="0" max="255">
+    </form>
+</body>
+</html>
