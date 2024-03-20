@@ -1,0 +1,44 @@
+<!-- 1. Dezvoltați o pagină web cu facilități JavaScript care obține o referință la o componentă de tip div
+existentă în pagină. Folosind referința,
+- modificați culoarea de background a componentei
+- afișați în componentă un text predefinit
+- afișați în componentă
+- un alt element de tip div
+- un text încapsulat într-un tag p
+- o imagine cu referința spre o resursă web -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Cosmin</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://helios.utcluj.ro/cosmin/WEB/CSS/style.css">
+
+<script>
+textAfisat = "TEXT PREDEFINIT";
+function f1(){
+	displayer = document.getElementById("displayer");
+	displayer.style.border = "1px solid red";
+	displayer.style.backgroundColor = "green";
+	displayer.innerHTML = textAfisat;
+
+	div2nd = document.createElement("div");
+	div2nd.style.border = "1px solid red";
+	div2nd.innerHTML = "DIV IN DIV";
+	displayer.appendChild(div2nd);
+
+	paragraf = document.createElement("p");
+    paragraf.innerHTML = "TEXT IN PARAGRAF";
+	displayer.appendChild(paragraf);
+
+	img = document.createElement("img");
+	img.src = "https://pbs.twimg.com/profile_images/446356636710363136/OYIaJ1KK_400x400.png";
+	displayer.appendChild(img);
+}
+</script>
+
+</head>
+<body onLoad="f1()">
+<div id="displayer"></div>
+</body>
+</html>
