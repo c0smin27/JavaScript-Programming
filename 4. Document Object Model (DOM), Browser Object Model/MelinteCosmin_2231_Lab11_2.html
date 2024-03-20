@@ -1,0 +1,39 @@
+<!-- 2. Dezvoltați o pagină web cu facilități JavaScript care desenează, una langa alta,
+o serie (10) de componente div colorate cu culori prestabilite. Într-o zonă de pe ecran
+se afișează codul culorii deasupra căreia se află mouse-ul. Textul este afișat cu culoarea componentei. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cosmin</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://helios.utcluj.ro/cosmin/WEB/CSS/style.css">
+
+    <script>
+        function f1(event) {
+            var color = event.target.style.backgroundColor;
+            var my_div = document.getElementById("my_div");
+
+            if (color) {
+                my_div.innerHTML = color;
+                my_div.style.color = color;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <br>
+    <div id="forma1" style="display: inline-block; width: 100px; height: 100px; background-color: #9e0142;" OnMouseOver="f1(event);"></div>
+    <div id="forma2" style="display: inline-block; width: 100px; height: 100px; background-color: #d53e4f;" OnMouseOver="f1(event);"></div>
+    <div id="forma3" style="display: inline-block; width: 100px; height: 100px; background-color: #f46d43;" OnMouseOver="f1(event);"></div>
+    <div id="forma4" style="display: inline-block; width: 100px; height: 100px; background-color: #fdae61;" OnMouseOver="f1(event);"></div>
+    <div id="forma5" style="display: inline-block; width: 100px; height: 100px; background-color: #fee08b;" OnMouseOver="f1(event);"></div>
+    <div id="forma6" style="display: inline-block; width: 100px; height: 100px; background-color: #e6f598;" OnMouseOver="f1(event);"></div>
+    <div id="forma7" style="display: inline-block; width: 100px; height: 100px; background-color: #abdda4;" OnMouseOver="f1(event);"></div>
+    <div id="forma8" style="display: inline-block; width: 100px; height: 100px; background-color: #66c2a5;" OnMouseOver="f1(event);"></div>
+    <div id="forma9" style="display: inline-block; width: 100px; height: 100px; background-color: #3288bd;" OnMouseOver="f1(event);"></div>
+    <div id="forma10" style="display: inline-block; width: 100px; height: 100px; background-color: #5e4fa2;" OnMouseOver="f1(event);"></div>
+    <div id="my_div" style="font-size: 25px;"></div>
+</body>
+</html>

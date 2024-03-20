@@ -1,0 +1,27 @@
+<!-- 6. Dezvoltați o pagină web cu facilități JavaScript care afișează ora curenta (hh:mm:ss), actualizată o dată pe secundă (obiect de tip Date, apel repetat de cod prin setInterval() sau setTimeout()). -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cosmin</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://helios.utcluj.ro/cosmin/WEB/CSS/style.css">
+
+    <script>
+        function update() {
+            d = new Date();
+            hh = d.getHours();
+            mm = d.getMinutes();
+            ss = d.getSeconds();
+            time = "(" + hh + ":" + mm + ":" + ss +")";
+            document.getElementById('clock').innerHTML = time;
+        }
+        setInterval(update, 1000);
+        update();
+    </script>
+</head>
+
+<body>
+    <div id="clock" style="font-size: 80px;"></div>
+</body>
+</html>

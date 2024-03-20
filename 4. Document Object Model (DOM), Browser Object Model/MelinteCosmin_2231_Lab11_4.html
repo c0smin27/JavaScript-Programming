@@ -1,0 +1,54 @@
+<!-- 4. Dezvoltați o pagină web cu facilități JavaScript care definește o grilă dreptunghiulară (componente div alăturate, dispuse matricial; dimensiunea grilei este prestabilită). La trecerea cu mouse-ul peste componente, acestea își schimbă culoarea. Monitorizați și afișați timpul scurs până la colorarea tuturor celulelor. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cosmin</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://helios.utcluj.ro/cosmin/WEB/CSS/style.css">
+
+    <script>
+        var arr;
+        var displayer;
+
+        function f1() {
+            displayer = document.getElementById("displayer");
+            arr = [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]];
+            updateDisplay();
+        }
+
+        function updateDisplay() {
+            var textAfisat = "<div style='display: grid; grid-template-columns: repeat(5, 1fr);'>";
+            for (var i = 0; i < arr.length; i++) {
+                for (var j = 0; j < arr[i].length; j++) {
+                    textAfisat += "<div onmouseover='onMouseOver(" + i + "," + j + ")' style='background-color: " + (arr[i][j] === 0 ? 'white' : 'black') + "; height: 50px;'></div>";
+                }
+            }
+            displayer.innerHTML = textAfisat;
+        }
+
+        function onMouseOver(row, col) {
+            arr[row][col] = (arr[row][col] === 0) ? 1 : 0;
+            updateDisplay();
+        }
+
+        var count = 0;
+        var my_div;
+        function startTimer() {
+            my_div = document.getElementById("my_div");
+            setTimeout('counter()', 1000);
+        }
+
+        function counter() {
+            count++;
+            my_div.innerHTML = "Pagina a fost incarcata acum "+count+" secunde";
+            setTimeout('counter()', 1000);
+        }
+    </script>
+</head>
+
+<body onLoad="f1(); startTimer();">
+    <div id="displayer"></div>
+    <div id="my_div" style="font-size: 20px;">Pagina a fost incarcata</div>
+</body>
+</html>

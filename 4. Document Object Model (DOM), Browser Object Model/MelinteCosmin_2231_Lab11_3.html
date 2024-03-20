@@ -1,0 +1,92 @@
+<!-- 3. Dezvoltați o pagină web cu facilități JavaScript care definește o grilă dreptunghiulară (componente div alăturate, dispuse matricial; dimensiunea grilei este prestabilită). Elementul din stânga sus este colorat diferit.
+Definiți 4 taste la apăsarea cărora elementul colorat “se mută” pe celula imediat următoare din stânga, dreapta, sus sau jos (doar dacă mișcarea este posibilă). -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cosmin</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://helios.utcluj.ro/cosmin/WEB/CSS/style.css">
+
+    <script>
+        var arr;
+        var displayer;
+
+        function f1() {
+            displayer = document.getElementById("displayer");
+            arr = [[1, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]];
+            updateDisplay();
+
+            document.onkeydown = keyProcess;
+            function keyProcess(evt) {
+                var this_key = (evt) ? evt.which : window.event.keyCode;
+
+                // stanga
+                if (this_key == 37) {
+                    for (var i = 0; i < arr.length; i++) {
+                        for (var j = 0; j < arr[i].length - 1; j++) {
+                            arr[i][j] = arr[i][j + 1];
+                        }
+                        arr[i][arr[i].length - 1] = 0; // ultimul element din fiecare linie = alb
+                    }
+                    updateDisplay();
+                }
+                 // sus
+                if (this_key == 38) {
+                    for (var i = 0; i < arr.length - 1; i++) {
+                        for (var j = 0; j < arr[i].length; j++) {
+                            arr[i][j] = arr[i + 1][j];
+                        }
+                    }
+                    for (var j = 0; j < arr[arr.length - 1].length; j++) {
+                        arr[arr.length - 1][j] = 0; // ultima linie = alb
+                    }
+                    updateDisplay();
+                }
+                 // dreapta
+                if (this_key == 39) {
+                    for (var i = 0; i < arr.length; i++) {
+                        for (var j = arr[i].length - 1; j > 0; j--) {
+                            arr[i][j] = arr[i][j - 1];
+                        }
+                        arr[i][0] = 0; // primul element din fiecare linie = alb
+                    }
+                    updateDisplay();
+                }
+                // jos
+                if (this_key == 40) { 
+                    for (var i = arr.length - 1; i > 0; i--) {
+                        for (var j = 0; j < arr[i].length; j++) {
+                            arr[i][j] = arr[i - 1][j];
+                        }
+                    }
+                    for (var j = 0; j < arr[0].length; j++) {
+                        arr[0][j] = 0; // prima linie = alb
+                    }
+                    updateDisplay();
+                }
+            }
+
+        }
+
+        function updateDisplay() {
+            var textAfisat = "<div style='display: grid; grid-template-columns: repeat(5, 1fr);'>";
+            for (var i = 0; i < arr.length; i++) {
+                for (var j = 0; j < arr[i].length; j++) {
+                    if (arr[i][j] === 0) {
+                        textAfisat += "<div style='background-color: white; height: 50px;'></div>"
+                    } else {
+                        textAfisat += "<div style='background-color: black; height: 50px;'></div>"
+                    }
+                }
+            }
+            displayer.innerHTML = textAfisat;
+        }
+    </script>
+</head>
+
+<body onLoad="f1()">
+    <div id="displayer"></div>
+    <div style="font-size: 20px;">Use: ←↑↓→</div>
+</body>
+</html>

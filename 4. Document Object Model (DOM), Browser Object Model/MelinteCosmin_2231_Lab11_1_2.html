@@ -1,0 +1,31 @@
+<!-- 1'. Schimbați culoarea componentei progresiv (setTimeout, setInterval). -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cosmin</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://helios.utcluj.ro/cosmin/WEB/CSS/style.css">
+
+    <script>
+        var count = 0;
+        var interval;
+        function startTimer(){
+            element = document.getElementById("element");
+            interval = setTimeout('counter()', 20);
+        }
+        function counter(){
+            count++;
+            var red = ((count + 10) % 255);
+            var green = ((count + 200) % 255);
+            var blue = ((count + 100) % 255);
+            element.style.backgroundColor = "rgb("+red+","+green+","+blue+")";
+            setTimeout('counter()', 20);
+        }
+    </script>
+</head>
+
+<body onLoad="startTimer();">
+    <div id="element" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 100px; background-color: red;"></div>
+</body>
+</html>
