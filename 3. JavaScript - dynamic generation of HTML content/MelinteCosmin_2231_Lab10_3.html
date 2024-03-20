@@ -1,0 +1,38 @@
+<!-- 3. Dezvoltați o pagină web cu facilități JavaScript care definește și randează o grilă dreptunghiulară
+(componente div alăturate, dispuse matricial; dimensiunea grilei este prestabilită). Componentele vor fi
+colorate diferit în funcție de valorile 0 sau 1 memorate într-o matrice. Pozițiile ocupate de elementele din
+matrice definesc corespondența cu elementele de pe ecran. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Cosmin</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://helios.utcluj.ro/cosmin/WEB/CSS/style.css">
+
+<script>
+function f1() {
+    displayer = document.getElementById("displayer");
+
+    arr = [[1,0,1,0], [0,1,0,1], [1,0,1,0]];
+    textAfisat = "<div style='display: grid; grid-template-columns: repeat(4, 1fr);'>";
+
+    for (i = 0; i < arr.length; i++) {
+        for (j = 0; j < arr[i].length; j++) {
+            if (arr[i][j] === 0) {
+                textAfisat += "<div style='background-color: white; height: 50px;'></div>"
+			}
+            else {
+                textAfisat += "<div style='background-color: black; height: 50px;'></div>"
+            }
+        }
+    }
+    displayer.innerHTML = textAfisat;
+}
+</script>
+
+</head>
+<body onLoad="f1()">
+<div id="displayer"></div>
+</body>
+</html>

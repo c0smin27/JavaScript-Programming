@@ -1,0 +1,66 @@
+<!-- 4. Dezvoltați o pagină web cu facilități JavaScript care definește un text. În 3 componente de tip div
+(existente în pagină) se vor afișa:
+- caracterele care reprezintă litere
+- caracterele care reprezintă cifre
+- textul obținut prin înlocuirea cifrelor cu caracterul * -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Cosmin</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://helios.utcluj.ro/cosmin/WEB/CSS/style.css">
+
+<script>
+textAfisat = "AbC123dEfG456";
+litere = "";
+cifre = "";
+simbol = "";
+function f1(){
+	displayer = document.getElementById("displayer");
+	displayer.style.border = "1px solid red";
+	displayer.innerHTML = textAfisat;
+
+	display_litere = document.getElementById("display_litere");
+	display_litere.style.border = "1px solid red";
+	for (i=0; i<textAfisat.length; i++) {
+		aux = textAfisat.charAt(i);
+		if (/[a-zA-Z]/.test(aux)) {
+			litere += aux;
+		}
+	}
+	display_litere.innerHTML = litere;
+
+	display_cifre = document.getElementById("display_cifre");
+	display_cifre.style.border = "1px solid red";
+	for (i=0; i<textAfisat.length; i++) {
+		aux = textAfisat.charAt(i);
+		if (/[0-9]/.test(aux)) {
+			cifre += aux;
+		}
+	}
+	display_cifre.innerHTML = cifre;
+
+	inlocuire = document.getElementById("inlocuire");
+	inlocuire.style.border = "1px solid red";
+	for (i=0; i<textAfisat.length; i++) {
+		aux = textAfisat.charAt(i);
+		if (/[0-9]/.test(aux)) {
+			simbol += '*';
+		}
+		else {
+			simbol += aux;
+		}
+	}
+	inlocuire.innerHTML = simbol;
+}
+</script>
+
+</head>
+<body onLoad="f1()">
+<div id="displayer"></div>
+<div id="display_litere"></div>
+<div id="display_cifre"></div>
+<div id="inlocuire"></div>
+</body>
+</html>

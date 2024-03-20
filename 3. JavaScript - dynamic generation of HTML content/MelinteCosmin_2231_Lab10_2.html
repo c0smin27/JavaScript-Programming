@@ -1,0 +1,49 @@
+<!-- 2. Dezvoltați o pagină web cu facilități JavaScript care desenează, una langa alta,
+- o serie de componente (10) div colorate cu culori prestabilite
+- o serie de componente (10) div colorate cu culori generate aleator -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Cosmin</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://helios.utcluj.ro/cosmin/WEB/CSS/style.css">
+
+<script>
+function f1(){
+	displayer = document.getElementById("displayer");
+	displayer.style.border = "1px solid red";
+
+	for(i=0; i<10; i++) {
+		div = document.createElement("div");
+		div.style.display = "inline-block";
+		div.style.border = "1px solid red";
+		div.style.margin = "10px";
+		div.style.padding = "40px";
+        div.style.backgroundColor = "green";
+		displayer.appendChild(div);
+	}
+
+	spatiuGol = document.createElement("div");
+	displayer.appendChild(spatiuGol);
+
+	for(i=0; i<10; i++) {
+		div2 = document.createElement("div");
+		div2.style.display = "inline-block";
+		div2.style.border = "1px solid red";
+		div2.style.margin = "10px";
+		div2.style.padding = "40px";
+		red = Math.floor(Math.random() * 255);
+        green = Math.floor(Math.random() * 255);
+        blue = Math.floor(Math.random() * 255);
+        div2.style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
+		displayer.appendChild(div2);
+	}
+}
+</script>
+
+</head>
+<body onLoad="f1()">
+<div id="displayer"></div>
+</body>
+</html>

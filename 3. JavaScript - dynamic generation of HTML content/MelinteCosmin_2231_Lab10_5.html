@@ -1,0 +1,64 @@
+<!-- 5. Dezvoltați o pagină web cu facilități JavaScript care definește un șir de valori numerice întregi. În 3
+componente de tip div (existente în pagină) se vor afișa:
+- valorile pozitive pare
+- numărul de elemente negative care sunt compuse din mai mult de 2 cifre, urmat de respectivele elemente
+- valorile care reprezintă minime locale (sunt încadrate de valori mai mari) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Cosmin</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://helios.utcluj.ro/cosmin/WEB/CSS/style.css">
+
+<script>
+textAfisat = [-700, -62, -40, -25, -10, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 10, 25, 40, 62, 700];
+pozitivPar = "";
+negativ = "";
+minimDouaCifre = "";
+minLocal = "";
+function f1() {
+	displayer = document.getElementById("displayer");
+	displayer.style.border = "1px solid red";
+	displayer.innerHTML = "sir nr intregi: " + textAfisat;
+
+	for (i=0; i<textAfisat.length; i++) {
+		if (textAfisat[i] >= 0 && textAfisat[i]%2==0) {
+			pozitivPar += textAfisat[i] + ", ";
+		}
+	}
+	displayer2 = document.getElementById("displayer2");
+	displayer2.style.border = "1px solid red";
+	displayer2.innerHTML = "valorile pozitive pare: " + pozitivPar;
+
+	for (i=0; i<textAfisat.length; i++) {
+		if (textAfisat[i] < 0) {
+			negativ ++;
+		}
+		if (textAfisat[i] < 0 && Math.abs(textAfisat[i]).toString().length >= 2) {
+        	minimDouaCifre += textAfisat[i] + ", ";
+    	}
+	}
+	displayer3 = document.getElementById("displayer3");
+	displayer3.style.border = "1px solid red";
+	displayer3.innerHTML = "exista " + negativ + " elemente negative, dintre care cele cu minim 2 cifre sunt: " + minimDouaCifre;
+
+	for (i=0; i<textAfisat.length; i++) {
+		if (textAfisat[i] > textAfisat[i-1] && textAfisat[i] < textAfisat[i+1]) {
+			minLocal += textAfisat[i] + ", ";
+		}
+	}
+	displayer4 = document.getElementById("displayer4");
+	displayer4.style.border = "1px solid red";
+	displayer4.innerHTML = "valorile care repez minime locale: " + minLocal;
+}
+</script>
+
+</head>
+<body onLoad="f1()">
+<div id="displayer"></div>
+<div id="displayer2"></div>
+<div id="displayer3"></div>
+<div id="displayer4"></div>
+</body>
+</html>
