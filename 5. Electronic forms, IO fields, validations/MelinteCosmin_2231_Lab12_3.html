@@ -1,0 +1,34 @@
+<!-- 3. Dezvoltați o pagină web cu facilități JavaScript care afișează două câmpuri pt. introducerea unei date. Se validează datele introduse doar dacă delimitează un interval mai mare de 3 luni. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cosmin</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://helios.utcluj.ro/cosmin/WEB/CSS/style.css">
+
+    <script>
+      function f1() {
+        var date1 = new Date(document.getElementById("date1").value);
+        var date2 = new Date(document.getElementById("date2").value);
+
+        var diferenta = Math.abs((date2.getFullYear() - date1.getFullYear()) * 12 + date2.getMonth() - date1.getMonth());
+        
+        if (diferenta > 3) {
+          alert("Validat");
+        } else {
+          alert("Nevalidat");
+        }
+      }
+    </script>
+</head>
+
+<body>
+  <form onsubmit="f1()">
+    <p>Introduceti cele doua date:</p>
+    <input type="date" name="date1" id="date1"> <br><br>
+    <input type="date" name="date2" id="date2"> <br><br>
+    <input type="submit" value="OK">
+  </form>
+</body>
+</html>

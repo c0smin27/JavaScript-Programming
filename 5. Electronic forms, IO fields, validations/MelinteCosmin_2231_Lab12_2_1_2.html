@@ -1,0 +1,48 @@
+<!-- 2’. Utilizatorul este informat în timp real asupra gradului de rezistență calculat prin modificarea culorii unei componente de tip <div> din roșu -> portocaliu -> galben -> verde.
+2’’. Utilizatorul este informat în timp real asupra gradului de rezistență calculat prin modificarea dimensiunii unei componente de tip <div> (rezistență mai mare, dimensiune mai mare). -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cosmin</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://helios.utcluj.ro/cosmin/WEB/CSS/style.css">
+
+    <script>
+      function f1() {
+        var p1 = document.getElementById("p1");
+        var nivel = document.getElementById("nivel");
+        var culoare = document.getElementById("culoare");
+
+        if (p1.value.length >= 5 && /[A-Z]/.test(p1.value) && /\d/.test(p1.value) && /[^a-zA-Z0-9]/.test(p1.value)) {
+          nivel.innerHTML = "Nivelul de securitate al parolei: 10/10";
+          culoare.style.backgroundColor = "green";
+          culoare.style.width = "200px";
+        } else if (p1.value.length >= 5 && /[A-Z]/.test(p1.value) && /\d/.test(p1.value)) {
+          nivel.innerHTML = "Nivelul de securitate al parolei: 7/10";
+          culoare.style.backgroundColor = "orange";
+          culoare.style.width = "150px";
+        } else if (p1.value.length >= 5 && /\d/.test(p1.value)) {
+          nivel.innerHTML = "Nivelul de securitate al parolei: 5/10";
+        } else if (p1.value.length >= 5) {
+          culoare.style.backgroundColor = "yellow";
+          culoare.style.width = "100px";
+          nivel.innerHTML = "Nivelul de securitate al parolei: 3/10";
+        } else {
+          nivel.innerHTML = "Nivelul de securitate al parolei: 1/10";
+          culoare.style.backgroundColor = "red";
+          culoare.style.width = "50px";
+        }
+      }
+    </script>
+</head>
+
+<body>
+  <form>
+    <p>Alegeti o parola:</p>
+    <input type="password" name="p1" id="p1" oninput="f1()">
+    <p id="nivel"></p>
+    <div id="culoare" style="background-color: #333333;"></div>
+  </form>
+</body>
+</html>

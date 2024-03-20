@@ -1,0 +1,105 @@
+<!-- 5. Dezvoltați o pagină web cu facilități JavaScript care implementează un formular electronic cu următoarele câmpuri:
+a. nume (câmp de tip text)
+b. prenume (cîmp de tip text)
+c. sex (câmp de selecție unică (butoane radio sau câmp de tip select))
+d. data nașterii (câmp de tip dată)
+e. adresă de email (câmp de tip text)
+f. număr de telefon
+g. cunoștințe de programare (câmp de selecție multiplă (checkbox-uri sau select))
+h. observații (câmp de tip textarea)
+Toate câmpurile sunt obligatorii și datele nu pot fi trimise către adresa https://helios.utcluj.ro/cosmin/WEB/responders/post_responder.php decât după completarea integrală. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cosmin</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://helios.utcluj.ro/cosmin/WEB/CSS/style.css">
+
+<style>
+    .form-input {
+      margin-bottom: 10px;
+    }
+    .form-select {
+      margin-bottom: 10px;
+      margin-top: 10px;
+      width: 150px;
+      height: 100px;
+    }
+    .form-textarea {
+      margin-top: 10px;
+    }
+    .form-submit {
+      font-size: 15px;
+      margin-top: 10px;
+    }
+    .form-container {
+      padding: 15px;
+    }
+  </style>
+
+    <script>
+      function f1(event) {
+        event.preventDefault();
+
+        var nume = document.getElementById("nume").value;
+        var prenume = document.getElementById("prenume").value;
+        var sex = document.getElementById("sex").value;
+        var dataNasterii = document.getElementById("dataNasterii").value;
+        var email = document.getElementById("email").value;
+        var telefon = document.getElementById("telefon").value;
+        var cunostinte = document.getElementById("cunostinte").value;
+        var observatii = document.getElementById("observatii").value;
+
+        if (nume && prenume && sex && dataNasterii && email && telefon && cunostinte && observatii) {
+          document.forms[0].submit();
+        } else {
+          alert("Date incomplete!");
+        }
+      }
+    </script>
+</head>
+
+<body>
+  <form action="https://helios.utcluj.ro/cosmin/WEB/responders/post_responder.php" target="_blank" method="POST" onsubmit="f1(event)" class="form-container">
+    <h2>Formular</h1>
+    Nume:
+    <input type="text" id="nume" class="form-input"> <br>
+
+    Prenume:
+    <input type="text" id="prenume" class="form-input"> <br>
+
+    Sex:
+    <select id="sex" class="form-input">
+      <option value="masculin">Masculin</option>
+      <option value="feminin">Feminin</option>
+    </select> <br>
+
+    Data nasterii:
+    <input type="date" id="dataNasterii" class="form-input"> <br>
+
+    Adresa de email:
+    <input type="email" id="email" class="form-input"> <br>
+
+    Numar de telefon:
+    <input type="tel" id="telefon" class="form-input"> <br>
+
+    Cunostinte de programare: <br>
+    <select id="cunostinte" multiple class="form-select">
+      <option value="html">HTML</option>
+      <option value="css">CSS</option>
+      <option value="javascript">JavaScript</option>
+      <option value="cpp">C++</option>
+      <option value="csharp">C#</option>
+      <option value="python">Python</option>
+      <option value="php">PHP</option>
+      <option value="swift">Swift</option>
+    </select> <br>
+
+    Observatii: <br>
+    <textarea id="observatii" rows="5" cols="30" class="form-textarea"></textarea> <br>
+
+    <input type="submit" value="Submit" class="form-submit">
+  </form>
+</body>
+</html>

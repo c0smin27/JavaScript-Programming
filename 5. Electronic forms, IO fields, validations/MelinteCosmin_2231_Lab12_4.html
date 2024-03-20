@@ -1,0 +1,41 @@
+<!-- 4. Dezvoltați o pagină web cu facilități JavaScript care afișează 2 componente de text exclusiv numeric limitat între valorile 100-400. La apăsarea unui buton, un cerc (componentă <div> cu atributul border-radius setat corespunzător) se poziționează pe ecran în funcție de valorile scrise în componente (stânga, sus). -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cosmin</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://helios.utcluj.ro/cosmin/WEB/CSS/style.css">
+
+    <script>
+      function f1(event) {
+        event.preventDefault();
+        
+        var number1 = document.getElementById("number1");
+        var number2 = document.getElementById("number2");
+        var cerc = document.getElementById("cerc");
+
+        var x = number1.value;
+        var y = number2.value;
+        
+        cerc.style.position = "absolute";
+        cerc.style.top = x + "px";
+        cerc.style.left = y + "px";
+        cerc.style.borderRadius = "50%";
+        cerc.style.width = "100px";
+        cerc.style.height = "100px";
+        cerc.style.backgroundColor = "red";
+      }
+    </script>
+</head>
+
+<body>
+  <form onsubmit="f1(event)">
+    <p>Introduceti cele doua date:</p>
+    <input type="number" id="number1" min="100" max="400"> <br><br>
+    <input type="number" id="number2" min="100" max="400"> <br><br>
+    <input type="submit" value="OK">
+    <div id="cerc" style="background-color: #333333;"></div>
+  </form>
+</body>
+</html>
