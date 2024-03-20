@@ -1,0 +1,25 @@
+<!-- 1. Dezvoltați o pagină web cu facilități JavaScript care pozitionează la mijlocul ecranului o componentă "div" cu latura de 100 de pixeli, umplută cu roșu. Cand mouse-ul se află deasupra componentei, aceasta este colorată cu albastru. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cosmin</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://helios.utcluj.ro/cosmin/WEB/CSS/style.css">
+
+    <script>
+        function f1(){
+            element = document.getElementById("element");
+            element.style.backgroundColor = "blue";
+        }
+        function f2(){
+            element = document.getElementById("element");
+            element.style.backgroundColor = "red";
+        }
+    </script>
+</head>
+
+<body>
+    <div id="element" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 100px; background-color: red;" OnMouseOver="f1();" OnMouseOut="f2();"></div>
+</body>
+</html>
